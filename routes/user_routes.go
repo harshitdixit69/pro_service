@@ -27,6 +27,7 @@ func MysqlUserRoute(router *gin.Engine) {
 
 		serviceGroup := v1.Group("service")
 
+		
 		serviceGroup.POST("/dashboard", middleware.RequireAuth, mysqlControllers.GetUserDashboard())
 		serviceGroup.POST("/serviceListBytype", middleware.RequireAuth, mysqlControllers.GetServiceListBytype())
 		serviceGroup.POST("/serviceList", middleware.RequireAuth, mysqlControllers.GetServiceList())
@@ -35,7 +36,6 @@ func MysqlUserRoute(router *gin.Engine) {
 		serviceGroup.POST("/appointment", middleware.RequireAuth, mysqlControllers.GetAppointment())
 
 		serviceProviderGroup := v1.Group("service_provider")
-
 		serviceProviderGroup.POST("/dashboard", middleware.RequireAuth, mysqlControllers.GetServiceProviderDashboard())
 		// controller.GetAccountEntries()
 		// controller.CreateData()
